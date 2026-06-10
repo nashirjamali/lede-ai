@@ -23,7 +23,7 @@ export default function AiSettingsPage() {
         </div>
         <div className="space-y-2">
           <Label htmlFor="model">Default model</Label>
-          <select id="model" className="lede-input w-full max-w-xs">
+          <select id="model" className="lede-select w-full max-w-xs">
             <option>GPT-4o (quality)</option>
             <option>gpt-4o-mini (fast)</option>
           </select>

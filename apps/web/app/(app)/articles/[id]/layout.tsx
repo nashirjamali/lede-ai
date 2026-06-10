@@ -10,13 +10,13 @@ export default async function ArticleLayout({
   const { id } = await params;
 
   return (
-    <div className="-mx-6 -my-8 flex min-h-[calc(100vh-3.5rem)]">
+    <div className="-mx-6 -my-10 flex min-h-[calc(100vh-3.5rem)]">
       <ArticleSidebar
         articleId={id}
         title="How to scale content ops for B2B SaaS"
         status="DRAFT"
       />
-      <div className="flex-1 overflow-auto p-8">{children}</div>
+      <div className="flex-1 overflow-auto p-10">{children}</div>
     </div>
   );
 }

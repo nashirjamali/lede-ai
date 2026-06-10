@@ -10,8 +10,8 @@
     "lint": "tsc --noEmit",
     "test": "node --import tsx --test src/index.test.ts",
     "generate": "prisma generate",
-    "migrate": "prisma migrate dev",
-    "push": "prisma db push"
+    "migrate": "dotenv -e ../../.env -- prisma migrate dev",
+    "push": "dotenv -e ../../.env -- prisma db push"
   },
   "dependencies": {
     "@prisma/client": "^6.1.0"
@@ -23,6 +23,7 @@
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "@types/node": "^22.10.2",
+    "dotenv-cli": "^8.0.0",
     "prisma": "^6.1.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"

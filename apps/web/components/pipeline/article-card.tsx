@@ -17,15 +17,15 @@ export function ArticleCard({ article }: ArticleCardProps) {
   return (
     <Link
       href={href}
-      className="group block rounded-lg border border-border bg-white p-4 shadow-sm transition-all hover:border-brand/30 hover:shadow-md"
+      className="group block rounded-md border border-border bg-white p-4 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-ink/15 hover:shadow-elevated"
     >
       <div className="mb-3 flex items-start justify-between gap-2">
-        <h3 className="font-display text-sm font-semibold leading-snug text-foreground group-hover:text-brand">
+        <h3 className="font-display text-sm font-medium leading-snug text-ink group-hover:text-accent">
           {article.title}
         </h3>
         <StatusBadge status={article.status} />
       </div>
-      <dl className="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-xs text-muted">
+      <dl className="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-[11px] text-muted">
         <div>
           <dt className="sr-only">Assignee</dt>
           <dd>{article.assignee}</dd>
@@ -43,7 +43,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
           <dd>{article.seoScore !== null ? `SEO ${article.seoScore}` : '—'}</dd>
         </div>
       </dl>
-      <p className="mt-2 truncate text-xs text-muted">{article.publishTarget}</p>
+      <p className="mt-2 truncate text-[11px] text-muted">{article.publishTarget}</p>
     </Link>
   );
 }

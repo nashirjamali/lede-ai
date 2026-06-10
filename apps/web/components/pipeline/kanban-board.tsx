@@ -13,14 +13,14 @@ export function KanbanBoard() {
           <div key={status} className="flex w-72 shrink-0 flex-col">
             <div className="mb-3 flex items-center gap-2 px-1">
               <span className={`h-2 w-2 rounded-full ${style.dot}`} />
-              <h2 className="font-mono text-xs font-semibold uppercase tracking-wider text-foreground">
+              <h2 className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-ink">
                 {style.label}
               </h2>
-              <span className="ml-auto rounded-full bg-surface-raised px-2 py-0.5 font-mono text-xs text-muted">
+              <span className="ml-auto rounded-sm bg-surface-inset px-2 py-0.5 font-mono text-[11px] text-muted">
                 {articles.length}
               </span>
             </div>
-            <div className="flex flex-col gap-3 rounded-lg bg-surface-raised/60 p-2 min-h-[200px]">
+            <div className="flex min-h-[220px] flex-col gap-3 rounded-md border border-border/60 bg-surface-inset/50 p-2">
               {articles.map((article) => (
                 <ArticleCard key={article.id} article={article} />
               ))}

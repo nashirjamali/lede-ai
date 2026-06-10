@@ -6,38 +6,38 @@ export const statusStyles: Record<
 > = {
   IDEA: {
     label: 'Idea',
-    className: 'bg-stone-100 text-stone-700 border-stone-200',
-    dot: 'bg-stone-400',
+    className: 'bg-surface-inset text-muted border-border',
+    dot: 'bg-border',
   },
   BRIEF: {
     label: 'Brief',
-    className: 'bg-sky-50 text-sky-800 border-sky-200',
-    dot: 'bg-sky-500',
+    className: 'bg-ink-soft/8 text-ink-soft border-ink-soft/15',
+    dot: 'bg-ink-soft',
   },
   DRAFT: {
     label: 'Draft',
-    className: 'bg-amber-50 text-amber-900 border-amber-200',
-    dot: 'bg-amber-500',
+    className: 'bg-highlight/15 text-foreground border-highlight/30',
+    dot: 'bg-highlight',
   },
   REVIEW: {
     label: 'Review',
-    className: 'bg-orange-50 text-orange-900 border-orange-200',
-    dot: 'bg-orange-500',
+    className: 'bg-accent/10 text-accent border-accent/25',
+    dot: 'bg-accent',
   },
   APPROVED: {
     label: 'Approved',
-    className: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+    className: 'bg-success/10 text-success border-success/20',
     dot: 'bg-success',
   },
   SCHEDULED: {
     label: 'Scheduled',
-    className: 'bg-teal-50 text-teal-800 border-teal-200',
-    dot: 'bg-teal-500',
+    className: 'bg-ink/6 text-ink border-ink/12',
+    dot: 'bg-ink',
   },
   PUBLISHED: {
     label: 'Published',
-    className: 'bg-brand/10 text-brand border-brand/20',
-    dot: 'bg-brand',
+    className: 'bg-ink text-white border-ink',
+    dot: 'bg-accent-soft',
   },
 };
 

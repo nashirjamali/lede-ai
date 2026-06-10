@@ -9,16 +9,14 @@ export function SettingsNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-col gap-1">
+    <nav className="flex flex-col gap-0.5">
       {settingsLinks.map((link) => (
         <Link
           key={link.href}
           href={link.href}
           className={cn(
-            'rounded-md px-3 py-2 text-sm font-medium transition-colors',
-            pathname === link.href
-              ? 'bg-brand/10 text-brand'
-              : 'text-muted hover:bg-surface-raised hover:text-foreground',
+            'nav-link',
+            pathname === link.href ? 'nav-link-light-active' : 'nav-link-light-inactive',
           )}
         >
           {link.label}

@@ -6,12 +6,12 @@ import { Label } from '@/components/ui/label';
 
 export default function LoginPage() {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Welcome back</CardTitle>
+    <Card className="border-border/80 shadow-elevated">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-2xl">Welcome back</CardTitle>
         <CardDescription>Sign in to your Lede workspace</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-5">
         <Button variant="outline" className="w-full" type="button">
           Continue with Google
         </Button>
@@ -19,8 +19,10 @@ export default function LoginPage() {
           <div className="absolute inset-0 flex items-center">
             <span className="w-full border-t border-border" />
           </div>
-          <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-white px-2 text-muted">or</span>
+          <div className="relative flex justify-center">
+            <span className="bg-white px-3 font-mono text-[10px] uppercase tracking-widest text-muted">
+              or
+            </span>
           </div>
         </div>
         <form className="space-y-4">
@@ -37,13 +39,13 @@ export default function LoginPage() {
           </Button>
         </form>
         <div className="text-center text-sm">
-          <button type="button" className="text-brand hover:underline">
+          <button type="button" className="text-accent transition-colors hover:text-ink">
             Send magic link instead
           </button>
         </div>
         <p className="text-center text-sm text-muted">
           No account?{' '}
-          <Link href="/auth/register" className="text-brand hover:underline">
+          <Link href="/auth/register" className="font-medium text-ink transition-colors hover:text-accent">
             Create one
           </Link>
         </p>

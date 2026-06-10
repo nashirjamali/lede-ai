@@ -18,15 +18,27 @@ export default function DashboardPage() {
         }
       />
 
-      <div className="mb-8 grid gap-4 sm:grid-cols-3">
+      <div className="mb-10 grid gap-4 sm:grid-cols-3">
         <StatCard label="Active articles" value="24" sub="6 due this week" />
         <StatCard label="In review" value="3" sub="2 awaiting approval" />
-        <div className="lede-card-raised p-5">
-          <p className="text-xs font-medium uppercase tracking-wider text-muted">AI words this month</p>
+        <div className="lede-card-raised p-6">
+          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
+            AI words this month
+          </p>
+          <p className="font-display nums-old mt-2 text-3xl font-semibold tracking-tight text-ink">
+            42,000
+            <span className="ml-1.5 font-sans text-sm font-normal text-muted">/ 100,000</span>
+          </p>
           <div className="mt-3">
-            <Progress value={42000} max={100000} label="42,000 / 100,000" />
+            <Progress value={42000} max={100000} />
           </div>
         </div>
+      </div>
+
+      <div className="editorial-rule mb-6">
+        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
+          The board
+        </span>
       </div>
 
       <KanbanBoard />

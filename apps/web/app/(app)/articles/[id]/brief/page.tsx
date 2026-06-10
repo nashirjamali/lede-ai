@@ -6,7 +6,7 @@ export default function BriefPage() {
   return (
     <div className="max-w-3xl space-y-6">
       <div>
-        <p className="mb-1 font-mono text-xs uppercase tracking-wider text-accent">SEO Brief</p>
+        <p className="section-eyebrow mb-1">SEO Brief</p>
         <h1 className="font-display text-2xl font-bold">{mockBrief.primaryKeyword}</h1>
       </div>
 
@@ -82,7 +82,7 @@ export default function BriefPage() {
               {mockBrief.competitors.map((c) => (
                 <tr key={c.url} className="border-b border-border/50">
                   <td className="py-2 font-mono text-muted">{c.position}</td>
-                  <td className="py-2 font-mono text-brand">{c.url}</td>
+                  <td className="py-2 font-mono text-accent">{c.url}</td>
                 </tr>
               ))}
             </tbody>

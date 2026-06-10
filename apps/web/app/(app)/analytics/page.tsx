@@ -52,7 +52,7 @@ export default function AnalyticsPage() {
                     <td className="py-3 font-mono">{a.clicks.toLocaleString()}</td>
                     <td className="py-3 font-mono">{a.impressions.toLocaleString()}</td>
                     <td className="py-3 font-mono">{a.position}</td>
-                    <td className="py-3 font-mono text-brand">{a.score}</td>
+                    <td className="py-3 font-mono text-accent">{a.score}</td>
                   </tr>
                 ))}
               </tbody>
@@ -67,14 +67,14 @@ export default function AnalyticsPage() {
           <CardContent className="space-y-4">
             {leaderboard.map((w, i) => (
               <div key={w.name} className="flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand/10 font-mono text-sm font-bold text-brand">
+                <span className="flex h-8 w-8 items-center justify-center rounded-md bg-accent/10 font-mono text-sm font-bold text-accent">
                   {i + 1}
                 </span>
                 <div className="flex-1">
                   <p className="font-medium">{w.name}</p>
                   <p className="text-xs text-muted">{w.words.toLocaleString()} words published</p>
                 </div>
-                <span className="font-mono text-sm text-brand">{w.score}</span>
+                <span className="font-mono text-sm text-accent">{w.score}</span>
               </div>
             ))}
           </CardContent>

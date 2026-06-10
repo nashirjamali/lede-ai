@@ -8,9 +8,9 @@ import { cn } from '@/lib/utils';
 
 export default function RegisterPage() {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Create your workspace</CardTitle>
+    <Card className="border-border/80 shadow-elevated">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-2xl">Create your workspace</CardTitle>
         <CardDescription>Start with a free Starter plan — upgrade anytime</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -38,7 +38,7 @@ export default function RegisterPage() {
                 <label
                   key={plan.name}
                   className={cn(
-                    'cursor-pointer rounded-lg border border-border p-3 text-left transition-colors hover:border-brand/40 has-[:checked]:border-brand has-[:checked]:bg-brand/5',
+                    'cursor-pointer rounded-md border border-border p-3 text-left transition-all hover:border-ink/20 has-[:checked]:border-accent has-[:checked]:bg-accent/5 has-[:checked]:shadow-card',
                   )}
                 >
                   <input
@@ -49,7 +49,7 @@ export default function RegisterPage() {
                     className="sr-only"
                   />
                   <span className="font-display text-sm font-semibold">{plan.name}</span>
-                  <span className="block font-mono text-xs text-muted">{plan.price}/mo</span>
+                  <span className="block font-mono text-[11px] text-muted">{plan.price}/mo</span>
                 </label>
               ))}
             </div>
@@ -60,7 +60,7 @@ export default function RegisterPage() {
         </form>
         <p className="text-center text-sm text-muted">
           Already have an account?{' '}
-          <Link href="/auth/login" className="text-brand hover:underline">
+          <Link href="/auth/login" className="font-medium text-ink transition-colors hover:text-accent">
             Sign in
           </Link>
         </p>

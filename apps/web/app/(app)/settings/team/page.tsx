@@ -47,7 +47,7 @@ export default function TeamSettingsPage() {
                   <td className="py-3 font-medium">{m.name}</td>
                   <td className="py-3 text-muted">{m.email}</td>
                   <td className="py-3">
-                    <select className="lede-input h-8 w-auto py-0 text-xs">
+                    <select className="lede-select h-9 w-32 text-xs">
                       <option>{m.role}</option>
                     </select>
                   </td>

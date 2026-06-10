@@ -10,20 +10,18 @@ interface TopNavProps {
 
 export function TopNav({ activePath }: TopNavProps) {
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-white/8 bg-ink shadow-elevated">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6">
-        <div className="flex items-center gap-8">
-          <Logo />
-          <nav className="hidden items-center gap-1 md:flex">
+        <div className="flex items-center gap-10">
+          <Logo variant="light" />
+          <nav className="hidden items-center gap-0.5 md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
-                  activePath === link.href
-                    ? 'bg-brand/10 text-brand'
-                    : 'text-muted hover:bg-surface-raised hover:text-foreground',
+                  'nav-link',
+                  activePath === link.href ? 'nav-link-active' : 'nav-link-inactive',
                 )}
               >
                 {link.label}
@@ -31,11 +29,16 @@ export function TopNav({ activePath }: TopNavProps) {
             ))}
           </nav>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm" asChild>
+        <div className="flex items-center gap-3">
+          <Button
+            variant="ghost"
+            size="sm"
+            asChild
+            className="text-white/60 hover:bg-white/8 hover:text-white"
+          >
             <Link href="/settings/team">Settings</Link>
           </Button>
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand text-xs font-medium text-white">
+          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-accent font-mono text-xs font-medium text-white">
             SK
           </div>
         </div>

@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-10T00:00:00Z",
+  "title": "Design System: Lede",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Ink",
+        "canonical": "#0E1320",
+        "tonalRamp": ["#05070C", "#0E1320", "#1C2538", "#2A3850", "#46587A", "#6F80A0", "#A3AFC6", "#D6DCE8"]
+      },
+      "ink-soft": {
+        "role": "primary",
+        "displayName": "Ink Soft",
+        "canonical": "#2A3F5F",
+        "tonalRamp": ["#0E1626", "#162439", "#21344F", "#2A3F5F", "#456083", "#6A85A6", "#9DB1C9", "#D2DCE8"]
+      },
+      "accent": {
+        "role": "secondary",
+        "displayName": "Terracotta",
+        "canonical": "#C24E2E",
+        "tonalRamp": ["#4A1A0E", "#6E2716", "#92341E", "#C24E2E", "#D27357", "#E29A85", "#EFC2B4", "#F8E5DD"]
+      },
+      "accent-soft": {
+        "role": "secondary",
+        "displayName": "Terracotta Soft",
+        "canonical": "#E8A090",
+        "tonalRamp": ["#7A3A2C", "#9A4F3D", "#BA6952", "#D2866E", "#E8A090", "#F0BBAF", "#F6D6CD", "#FCEEE9"]
+      },
+      "highlight": {
+        "role": "tertiary",
+        "displayName": "Warm Ochre",
+        "canonical": "#D4A574",
+        "tonalRamp": ["#5C4322", "#7A5A30", "#9C7642", "#BE9156", "#D4A574", "#E2BE97", "#EED7BC", "#F8EEDF"]
+      },
+      "success": {
+        "role": "support",
+        "displayName": "Editorial Green",
+        "canonical": "#1F6B4E",
+        "tonalRamp": ["#0C2A1F", "#123F2E", "#18553D", "#1F6B4E", "#3C8C6C", "#6BAD92", "#A2CDBC", "#D8EBE3"]
+      },
+      "danger": {
+        "role": "support",
+        "displayName": "Press Red",
+        "canonical": "#A32626",
+        "tonalRamp": ["#3F0F0F", "#5E1717", "#7E1F1F", "#A32626", "#C25151", "#D98484", "#EAB5B5", "#F8E0E0"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Cream Paper",
+        "canonical": "#FAF7F2",
+        "tonalRamp": ["#2B2823", "#4A453D", "#6B6560", "#8C857C", "#B0A99E", "#D9D0C4", "#EAE4D9", "#FAF7F2"]
+      },
+      "surface-raised": {
+        "role": "neutral",
+        "displayName": "Raised Paper",
+        "canonical": "#F2EDE4",
+        "tonalRamp": ["#2B2823", "#4A453D", "#6B6560", "#8C857C", "#B0A99E", "#D9D0C4", "#EAE4D9", "#F2EDE4"]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Warm Hairline",
+        "canonical": "#D9D0C4",
+        "tonalRamp": ["#3A352D", "#564F44", "#73695B", "#928777", "#B2A797", "#D9D0C4", "#EAE3DA", "#F7F3EE"]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#6B6560",
+        "tonalRamp": ["#26231F", "#3B3833", "#514C47", "#6B6560", "#8C857E", "#B0AAA3", "#D4CFC9", "#EFEBE7"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display / Headline", "purpose": "Newsreader serif. Page H1s, hero headlines, article titles." },
+      "title": { "displayName": "Title", "purpose": "Newsreader serif. Card titles, section headings, editor H2s." },
+      "body": { "displayName": "Body", "purpose": "Albert Sans. UI, navigation, forms, running copy (cap 65–75ch)." },
+      "label": { "displayName": "Label / Mono", "purpose": "IBM Plex Mono. Statuses, keyword pills, eyebrows, metadata." }
+    },
+    "shadows": [
+      { "name": "card", "value": "0 1px 2px rgba(14,19,32,0.04), 0 4px 16px rgba(14,19,32,0.06)", "purpose": "Resting shadow for cards, raised panels, dropdowns." },
+      { "name": "elevated", "value": "0 8px 32px rgba(14,19,32,0.1), 0 2px 8px rgba(14,19,32,0.04)", "purpose": "Hover lift, sticky top nav, featured pricing, AI command menu." }
+    ],
+    "motion": [
+      { "name": "page-enter", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "0.6s rise+fade for page regions; exponential ease-out." },
+      { "name": "stagger-step", "value": "60ms", "purpose": "Per-item delay increment for sequenced reveals (stagger-1…7)." },
+      { "name": "state", "value": "200ms", "purpose": "Default transition duration for interactive state changes." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "max", "value": "80rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The default action: ink fill, white text. Used for the main commit on a view.",
+      "html": "<button class=\"ds-btn-primary\">Create article</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 8px 16px; border: none; border-radius: 6px; background: var(--color-ink, #0E1320); color: #fff; font-family: 'Albert Sans', system-ui, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 1px 2px rgba(14,19,32,0.06); transition: background 200ms, transform 200ms; cursor: pointer; } .ds-btn-primary:hover { background: var(--color-ink-soft, #2A3F5F); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px #FAF7F2, 0 0 0 4px var(--color-ink-soft, #2A3F5F); }"
+    },
+    {
+      "name": "Accent Button",
+      "kind": "button",
+      "refersTo": "button-accent",
+      "description": "The editor's red pencil — terracotta fill for the single most important action on a view.",
+      "html": "<button class=\"ds-btn-accent\">Generate brief</button>",
+      "css": ".ds-btn-accent { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 8px 16px; border: none; border-radius: 6px; background: var(--color-accent, #C24E2E); color: #fff; font-family: 'Albert Sans', system-ui, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 1px 2px rgba(14,19,32,0.06); transition: background 200ms, transform 200ms; cursor: pointer; } .ds-btn-accent:hover { background: #B0461F; } .ds-btn-accent:active { transform: scale(0.98); } .ds-btn-accent:focus-visible { outline: none; box-shadow: 0 0 0 2px #FAF7F2, 0 0 0 4px var(--color-accent, #C24E2E); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action: white fill, warm border, ink text.",
+      "html": "<button class=\"ds-btn-outline\">Cancel</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 8px 16px; border: 1px solid var(--color-border, #D9D0C4); border-radius: 6px; background: #fff; color: var(--color-text-primary, #0E1320); font-family: 'Albert Sans', system-ui, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 1px 2px rgba(14,19,32,0.06); transition: background 200ms, border-color 200ms; cursor: pointer; } .ds-btn-outline:hover { border-color: rgba(14,19,32,0.2); background: var(--color-surface-raised, #F2EDE4); } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 2px #FAF7F2, 0 0 0 4px var(--color-ink-soft, #2A3F5F); }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Lifted white surface above the cream page; resting shadow, warm hairline border.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Q3 content plan</h3><p class=\"ds-card-desc\">14 articles in flight across 3 clients.</p></div>",
+      "css": ".ds-card { background: #fff; border: 1px solid var(--color-border, #D9D0C4); border-radius: 6px; padding: 24px; box-shadow: 0 1px 2px rgba(14,19,32,0.04), 0 4px 16px rgba(14,19,32,0.06); } .ds-card-title { margin: 0 0 6px; font-family: 'Newsreader', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; color: var(--color-text-primary, #0E1320); } .ds-card-desc { margin: 0; font-family: 'Albert Sans', system-ui, sans-serif; font-size: 14px; line-height: 1.6; color: var(--color-text-muted, #6B6560); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "White-fill field with warm border and a 2px ink-soft focus ring (no glow).",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Search articles\" />",
+      "css": ".ds-input { display: flex; height: 40px; width: 100%; border: 1px solid var(--color-border, #D9D0C4); border-radius: 6px; background: #fff; padding: 8px 12px; font-family: 'Albert Sans', system-ui, sans-serif; font-size: 14px; color: var(--color-text-primary, #0E1320); transition: border-color 200ms; } .ds-input::placeholder { color: var(--color-text-muted, #6B6560); } .ds-input:focus-visible { outline: none; box-shadow: 0 0 0 1px #FAF7F2, 0 0 0 3px var(--color-ink-soft, #2A3F5F); }"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "chip",
+      "refersTo": "status-badge",
+      "description": "Full-pill pipeline status with a leading colored dot; status by label + dot, never color alone. Shown here in the Review (terracotta) state.",
+      "html": "<span class=\"ds-status\"><span class=\"ds-status-dot\"></span>Review</span>",
+      "css": ".ds-status { display: inline-flex; align-items: center; gap: 6px; border-radius: 9999px; border: 1px solid rgba(194,78,46,0.25); background: rgba(194,78,46,0.1); padding: 2px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; color: var(--color-accent, #C24E2E); } .ds-status-dot { height: 6px; width: 6px; border-radius: 9999px; background: var(--color-accent, #C24E2E); }"
+    },
+    {
+      "name": "Metadata Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Mono uppercase tag for metadata and keyword pills.",
+      "html": "<span class=\"ds-badge\">SEO 82</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 4px; border: 1px solid var(--color-border, #D9D0C4); background: var(--color-surface-raised, #F2EDE4); padding: 2px 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted, #6B6560); }"
+    },
+    {
+      "name": "Top Navigation",
+      "kind": "nav",
+      "refersTo": "top-nav",
+      "description": "Sticky ink-backed top bar with light links; active link is solid white on a translucent chip.",
+      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-brand\">Lede</span><nav class=\"ds-nav-links\"><a class=\"ds-nav-link ds-nav-link--active\">Pipeline</a><a class=\"ds-nav-link\">Calendar</a><a class=\"ds-nav-link\">Analytics</a></nav></header>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 40px; height: 56px; padding: 0 24px; background: var(--color-ink, #0E1320); box-shadow: 0 8px 32px rgba(14,19,32,0.1), 0 2px 8px rgba(14,19,32,0.04); } .ds-nav-brand { font-family: 'Newsreader', Georgia, serif; font-size: 18px; font-weight: 600; color: #fff; } .ds-nav-links { display: flex; align-items: center; gap: 2px; } .ds-nav-link { padding: 6px 12px; border-radius: 6px; font-family: 'Albert Sans', system-ui, sans-serif; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6); transition: all 200ms; cursor: pointer; } .ds-nav-link:hover { color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.05); } .ds-nav-link--active { color: #fff; background: rgba(255,255,255,0.1); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Editorial Desk",
+    "overview": "Lede looks like the working surface of a serious publication: warm paper underfoot, deep ink set in type, and a single red editor's pencil that marks only what matters. It is 'Notion meets The Economist' — the calm authority of a print masthead carried into a multi-tenant SaaS workspace. The interface reads as a publication, not a control panel: hierarchy and typography do the work that chrome and color do in lesser dashboards. The system is built on a near-black ink (#0E1320) as its primary, a warm cream paper (#FAF7F2) as its ground, and a terracotta accent (#C24E2E) used with deliberate rarity — the editor's red pencil. Serif display type (Newsreader) gives headings the gravity of a printed page; a humanist sans (Albert Sans) keeps the working UI quiet and legible; a mono (IBM Plex Mono) handles labels, badges, and metadata like a galley slug. Surfaces are flat at rest, lifting only on interaction. This system explicitly rejects sterile corporate-blue B2B SaaS, single-user 'AI magic' toy energy, and the generic dark-sidebar-plus-white-content app shell.",
+    "keyCharacteristics": [
+      "Editorial calm: typography and hierarchy carry attention, not chrome.",
+      "Ink-on-paper foundation with a single, rare terracotta accent.",
+      "Serif display + humanist sans + mono metadata — three voices, clear jobs.",
+      "Flat by default; elevation is a response to state.",
+      "Restrained corners (4–6px) and quiet borders, never glassy or over-rounded."
+    ],
+    "rules": [
+      { "name": "The Red Pencil Rule", "body": "Terracotta (#C24E2E) is the editor's mark, not decoration. Keep it to ≤10% of any screen. If two terracotta elements compete for the eye on the same view, one of them is wrong.", "section": "colors" },
+      { "name": "The Lifted-White Rule", "body": "Cards and inputs are #FFFFFF; the page is cream (#FAF7F2). White is how a surface signals it sits above the paper. Never paint a card the same color as the page.", "section": "colors" },
+      { "name": "The Serif-Heading Rule", "body": "All h1–h3 render in Newsreader via .font-display. Never set a heading in Albert Sans.", "section": "typography" },
+      { "name": "The Mono-Metadata Rule", "body": "Mono is for machine facts — statuses, keywords, counts, slugs. Never set running prose or buttons in IBM Plex Mono.", "section": "typography" },
+      { "name": "The Ink-Tinted Shadow Rule", "body": "Every shadow uses the ink hue (rgba(14,19,32,…)), never pure black.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep terracotta (#C24E2E) to ≤10% of any screen — it's the editor's red pencil.",
+      "Do set cards and inputs in white (#FFFFFF) above the cream page so they read as lifted.",
+      "Do set every h1–h3 in Newsreader serif via .font-display.",
+      "Do reserve IBM Plex Mono for statuses, keywords, counts, and metadata only.",
+      "Do tint all shadows with the ink hue (rgba(14,19,32,…)), never pure black.",
+      "Do convey article status with label + dot together, for WCAG 2.1 AA and color-blind users.",
+      "Do keep corners restrained (4–6px on cards/inputs; full-pill only on status badges).",
+      "Do provide a prefers-reduced-motion alternative for page-enter and stagger animations."
+    ],
+    "donts": [
+      "Don't drift toward sterile corporate-blue B2B SaaS; the identity is warm ink-on-paper, not enterprise navy/cyan.",
+      "Don't add single-user 'AI magic' toy energy — no glowing gradients, neon accents, glassmorphism, or emoji marketing.",
+      "Don't use the generic dark-sidebar + white-content app shell; the app is top-nav-led, with a left panel only on editor/review pages.",
+      "Don't write hype-y growth-hacker copy ('10x your content!'); claims are specific and earned.",
+      "Don't set headings in Albert Sans or body/buttons in IBM Plex Mono.",
+      "Don't paint a card the same cream as the page, or use a pure-black shadow.",
+      "Don't over-round (no 24px+ radii on cards) or pair a 1px border with a wide soft drop shadow as decoration.",
+      "Don't add gradient text or colored side-stripe borders."
+    ]
+  }
+}
