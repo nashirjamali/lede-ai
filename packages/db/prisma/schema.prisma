@@ -1,0 +1,188 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PlanTier {
+  STARTER
+  PRO
+  AGENCY
+  ENTERPRISE
+}
+
+enum UserRole {
+  OWNER
+  ADMIN
+  REVIEWER
+  MEMBER
+}
+
+enum ArticleStatus {
+  IDEA
+  BRIEF
+  DRAFT
+  REVIEW
+  APPROVED
+  SCHEDULED
+  PUBLISHED
+}
+
+enum IntegrationType {
+  WORDPRESS
+  WEBFLOW
+  GHOST
+  CONTENTFUL
+  WEBHOOK
+}
+
+model Organisation {
+  id                   String    @id @default(uuid())
+  name                 String
+  slug                 String    @unique
+  planTier             PlanTier  @default(STARTER)
+  aiWordsUsedThisMonth Int       @default(0)
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  defaultAiPersona     String?   @db.Text
+  deletedAt            DateTime?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  users        User[]
+  articles     Article[]
+  integrations Integration[]
+  aiUsageLogs  AiUsageLog[]
+}
+
+model User {
+  id           String   @id @default(uuid())
+  orgId        String
+  email        String   @unique
+  name         String
+  role         UserRole @default(MEMBER)
+  passwordHash String?
+  avatar       String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  organisation Organisation @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  articlesAuthored Article[] @relation("ArticleAuthor")
+  articlesAssigned Article[] @relation("ArticleAssignee")
+  comments         Comment[] @relation("CommentAuthor")
+  commentsResolved Comment[] @relation("CommentResolver")
+  aiUsageLogs      AiUsageLog[]
+
+  @@index([orgId])
+}
+
+model Article {
+  id               String        @id @default(uuid())
+  orgId            String
+  title            String
+  slug             String
+  status           ArticleStatus @default(IDEA)
+  authorId         String
+  assigneeId       String?
+  content          Json          @default("{}")
+  wordCount        Int           @default(0)
+  seoScore         Int?
+  publishAt        DateTime?
+  publishedAt      DateTime?
+  cmsIntegrationId String?
+  cmsPostId        String?
+  deletedAt        DateTime?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  organisation   Organisation @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  author         User         @relation("ArticleAuthor", fields: [authorId], references: [id])
+  assignee       User?        @relation("ArticleAssignee", fields: [assigneeId], references: [id])
+  cmsIntegration Integration? @relation(fields: [cmsIntegrationId], references: [id])
+  brief          Brief?
+  comments       Comment[]
+  aiUsageLogs    AiUsageLog[]
+
+  @@unique([orgId, slug])
+  @@index([orgId, status])
+  @@index([assigneeId])
+}
+
+model Brief {
+  id                 String   @id @default(uuid())
+  articleId          String   @unique
+  seedKeyword        String
+  targetCountry      String
+  primaryKeyword     String
+  semanticKeywords   String[]
+  suggestedHeadings  Json
+  competitorUrls     String[]
+  targetWordCount    Int
+  searchVolume       Int?
+  keywordDifficulty  Int?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  article Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+}
+
+model Comment {
+  id           String    @id @default(uuid())
+  articleId    String
+  authorId     String
+  parentId     String?
+  content      String    @db.Text
+  paragraphRef String?
+  resolved     Boolean   @default(false)
+  resolvedBy   String?
+  resolvedAt   DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  article  Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  author   User     @relation("CommentAuthor", fields: [authorId], references: [id])
+  resolver User?    @relation("CommentResolver", fields: [resolvedBy], references: [id])
+  parent   Comment? @relation("CommentThread", fields: [parentId], references: [id])
+  replies  Comment[] @relation("CommentThread")
+
+  @@index([articleId])
+}
+
+model Integration {
+  id             String          @id @default(uuid())
+  orgId          String
+  type           IntegrationType
+  label          String
+  accessToken    String
+  refreshToken   String?
+  tokenExpiresAt DateTime?
+  siteUrl        String?
+  spaceId        String?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  organisation Organisation @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  articles     Article[]
+
+  @@index([orgId])
+}
+
+model AiUsageLog {
+  id         String   @id @default(uuid())
+  orgId      String
+  articleId  String
+  userId     String
+  command    String
+  tokensUsed Int
+  createdAt  DateTime @default(now())
+
+  organisation Organisation @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  article      Article      @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, createdAt])
+  @@index([articleId])
+}
