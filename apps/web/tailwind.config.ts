@@ -20,6 +20,7 @@ const config: Config = {
         accent: '#C4720D',
         success: '#2D6A4F',
         danger: '#B91C1C',
+        ring: '#3D7A6B',
       },
       fontFamily: {
         display: ['Georgia', 'serif'],
@@ -27,9 +28,18 @@ const config: Config = {
         mono: ['var(--font-jetbrains)', 'JetBrains Mono', 'monospace'],
       },
       borderRadius: {
-        lg: '0.5rem',
-        md: '0.375rem',
-        sm: '0.25rem',
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
+      keyframes: {
+        'page-enter': {
+          from: { opacity: '0', transform: 'translateY(8px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'page-enter': 'page-enter 0.5s ease-out both',
       },
     },
   },
